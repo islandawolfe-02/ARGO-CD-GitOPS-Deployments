@@ -61,6 +61,9 @@ into Git or this workflow.
    its successful publishing run's summary or `deployment-request.json` artifact.
 3. Choose a new namespace and deployment name. Keep local ports `18090`, `3001`
    and `3101` only if those ports are available on your Mac.
+   Both names must be 1–63 characters, use only lowercase letters (`a-z`),
+   digits (`0-9`) and hyphens (`-`), and start and end with a letter or digit.
+   For example, use `demo-1`; `demo_1`, uppercase letters and spaces are not accepted.
 4. Follow **Actions → Record deployment request** in this repository. The job
    validates the registered source, image reference, environment and destination,
    and confirms the registry index contains AMD64 and ARM64 manifests before
