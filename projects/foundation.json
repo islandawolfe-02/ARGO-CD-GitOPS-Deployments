@@ -1,0 +1,7 @@
+{
+  "source_repository": "islandawolfe-02/Basic-GitOps-using-Argo-CD-and-Minikube",
+  "container_port": 8081,
+  "health_path": "/healthz",
+  "environments": ["workshop-blue", "workshop-green"],
+  "environment": {"DOTNET_PROCESSOR_COUNT": "1"}
+}
