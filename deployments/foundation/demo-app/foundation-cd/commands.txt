@@ -1,0 +1,6 @@
+python3 scripts/bootstrap.py cd-d2fd1193f253ec65
+kubectl --context minikube -n argocd get application cd-d2fd1193f253ec65
+kubectl --context minikube -n demo-app get pods,svc,endpointslices -o wide
+kubectl --context minikube -n demo-app port-forward svc/app 18090:8081
+kubectl --context minikube -n demo-app port-forward svc/grafana 3001:3001
+kubectl --context minikube -n demo-app port-forward svc/loki 3101:3101

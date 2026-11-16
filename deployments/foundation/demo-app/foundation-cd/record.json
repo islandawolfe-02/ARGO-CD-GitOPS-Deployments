@@ -1,0 +1,13 @@
+{
+  "project": "foundation",
+  "source_repository": "islandawolfe-02/Basic-GitOps-using-Argo-CD-and-Minikube",
+  "source_revision": "d976bded19d03788f3523ebde942375902856b4e",
+  "image": "ghcr.io/islandawolfe-02/basic-gitops-using-argo-cd-and-minikube@sha256:a4ba1b60d4b0810a92660a7d40b0c84d941ae335430f507b1de4a24d0a36cfaf",
+  "namespace": "demo-app",
+  "deployment_name": "foundation-cd",
+  "app_port": "18090",
+  "grafana_port": "3001",
+  "loki_port": "3101",
+  "lab_env": "workshop-green",
+  "deployment_id": "cd-d2fd1193f253ec65"
+}

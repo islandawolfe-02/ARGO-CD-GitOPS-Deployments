@@ -1,0 +1,96 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Namespace",
+      "metadata": {
+        "name": "demo-app",
+        "labels": {
+          "gitops/deployment-id": "cd-d2fd1193f253ec65"
+        }
+      }
+    },
+    {
+      "apiVersion": "argoproj.io/v1alpha1",
+      "kind": "AppProject",
+      "metadata": {
+        "name": "cd-d2fd1193f253ec65",
+        "namespace": "argocd",
+        "labels": {
+          "gitops/deployment-id": "cd-d2fd1193f253ec65"
+        }
+      },
+      "spec": {
+        "sourceRepos": [
+          "https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments.git"
+        ],
+        "destinations": [
+          {
+            "server": "https://kubernetes.default.svc",
+            "namespace": "demo-app"
+          }
+        ],
+        "clusterResourceWhitelist": [],
+        "namespaceResourceWhitelist": [
+          {
+            "group": "",
+            "kind": "ConfigMap"
+          },
+          {
+            "group": "",
+            "kind": "Service"
+          },
+          {
+            "group": "apps",
+            "kind": "Deployment"
+          },
+          {
+            "group": "",
+            "kind": "Pod"
+          },
+          {
+            "group": "apps",
+            "kind": "ReplicaSet"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "argoproj.io/v1alpha1",
+      "kind": "Application",
+      "metadata": {
+        "name": "cd-d2fd1193f253ec65",
+        "namespace": "argocd",
+        "labels": {
+          "gitops/deployment-id": "cd-d2fd1193f253ec65"
+        }
+      },
+      "spec": {
+        "project": "cd-d2fd1193f253ec65",
+        "source": {
+          "repoURL": "https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments.git",
+          "targetRevision": "main",
+          "path": "deployments/foundation/demo-app/foundation-cd",
+          "directory": {
+            "include": "resources.json"
+          }
+        },
+        "destination": {
+          "server": "https://kubernetes.default.svc",
+          "namespace": "demo-app"
+        },
+        "syncPolicy": {
+          "automated": {
+            "prune": false,
+            "selfHeal": true
+          },
+          "syncOptions": [
+            "FailOnSharedResource=true"
+          ]
+        }
+      }
+    }
+  ]
+}
