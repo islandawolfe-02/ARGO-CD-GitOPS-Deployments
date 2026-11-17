@@ -1,0 +1,145 @@
+{
+  "observed_at_utc": "2026-11-17T14:02:58.707793+00:00",
+  "namespace": "cd-e2e-20261117-182740",
+  "pods": [
+    {
+      "name": "app-cd8c66677-nzshk",
+      "labels": {
+        "app.kubernetes.io/name": "app",
+        "gitops/deployment-id": "cd-0c71e7859fdc6cc9",
+        "pod-template-hash": "cd8c66677"
+      },
+      "ip": "10.244.0.161",
+      "ready": true,
+      "image_ids": [
+        "docker-pullable://ghcr.io/islandawolfe-02/basic-gitops-using-argo-cd-and-minikube@sha256:4b3b56cb59b49a8d8cb0ebff070ce77d27e8e4bff0f35992c404b2ede9e3b88b"
+      ]
+    },
+    {
+      "name": "grafana-6c5d4cc74-6zwdb",
+      "labels": {
+        "app.kubernetes.io/name": "grafana",
+        "gitops/deployment-id": "cd-0c71e7859fdc6cc9",
+        "pod-template-hash": "6c5d4cc74"
+      },
+      "ip": "10.244.0.160",
+      "ready": true,
+      "image_ids": [
+        "docker-pullable://grafana/grafana@sha256:b28bae15e219c998fb0e0424ed724930cc61b1f61fb404d47c862f9a23f9e572"
+      ]
+    },
+    {
+      "name": "loki-76cfd68b98-96lgd",
+      "labels": {
+        "app.kubernetes.io/name": "loki",
+        "gitops/deployment-id": "cd-0c71e7859fdc6cc9",
+        "pod-template-hash": "76cfd68b98"
+      },
+      "ip": "10.244.0.162",
+      "ready": true,
+      "image_ids": [
+        "docker-pullable://grafana/loki@sha256:1107dd5274e0ada47e42472b7a7e71f3b2a2fe878878108f3e2f9e51528f0193"
+      ]
+    }
+  ],
+  "endpoint_slices": [
+    {
+      "name": "app-lttzd",
+      "service": "app",
+      "endpoints": [
+        {
+          "addresses": [
+            "10.244.0.161"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "minikube",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "app-cd8c66677-nzshk",
+            "namespace": "cd-e2e-20261117-182740",
+            "uid": "ee5cefb8-bed2-4f1d-a1a4-a0672670346c"
+          }
+        }
+      ]
+    },
+    {
+      "name": "grafana-5nclq",
+      "service": "grafana",
+      "endpoints": [
+        {
+          "addresses": [
+            "10.244.0.160"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "minikube",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "grafana-6c5d4cc74-6zwdb",
+            "namespace": "cd-e2e-20261117-182740",
+            "uid": "6f4da57c-d646-4556-8217-932379682656"
+          }
+        }
+      ]
+    },
+    {
+      "name": "loki-h8w8k",
+      "service": "loki",
+      "endpoints": [
+        {
+          "addresses": [
+            "10.244.0.162"
+          ],
+          "conditions": {
+            "ready": true,
+            "serving": true,
+            "terminating": false
+          },
+          "nodeName": "minikube",
+          "targetRef": {
+            "kind": "Pod",
+            "name": "loki-76cfd68b98-96lgd",
+            "namespace": "cd-e2e-20261117-182740",
+            "uid": "e3441649-126d-4984-95fe-8627c5799f74"
+          }
+        }
+      ]
+    }
+  ],
+  "deployments": [
+    {
+      "name": "app",
+      "replicas": 1,
+      "images": [
+        "ghcr.io/islandawolfe-02/basic-gitops-using-argo-cd-and-minikube@sha256:4b3b56cb59b49a8d8cb0ebff070ce77d27e8e4bff0f35992c404b2ede9e3b88b"
+      ]
+    },
+    {
+      "name": "grafana",
+      "replicas": 1,
+      "images": [
+        "docker.io/grafana/grafana:13.2.3"
+      ]
+    },
+    {
+      "name": "loki",
+      "replicas": 1,
+      "images": [
+        "docker.io/grafana/loki:3.7.8"
+      ]
+    }
+  ],
+  "ready_endpoint_checks": {
+    "app": true,
+    "loki": true,
+    "grafana": true
+  },
+  "app_image_matches_record": true
+}

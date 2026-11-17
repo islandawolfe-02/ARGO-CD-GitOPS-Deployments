@@ -1,0 +1,541 @@
+record	Set up job	﻿2026-11-17T13:02:12.2097625Z Current runner version: '2.338.2'
+record	Set up job	2026-11-17T13:02:12.2120873Z ##[group]Runner Image Provisioner
+record	Set up job	2026-11-17T13:02:12.2121753Z Hosted Compute Agent
+record	Set up job	2026-11-17T13:02:12.2122310Z Version: 20261103.629
+record	Set up job	2026-11-17T13:02:12.2122932Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+record	Set up job	2026-11-17T13:02:12.2123651Z Build Date: 2026-11-03T17:26:59Z
+record	Set up job	2026-11-17T13:02:12.2124529Z Worker ID: {c31d420e-df7b-44c0-b26f-d27567de8574}
+record	Set up job	2026-11-17T13:02:12.2125217Z Region: westus2
+record	Set up job	2026-11-17T13:02:12.2125725Z Cloud: Azure
+record	Set up job	2026-11-17T13:02:12.2126263Z ##[endgroup]
+record	Set up job	2026-11-17T13:02:12.2127527Z ##[group]Operating System
+record	Set up job	2026-11-17T13:02:12.2128076Z Ubuntu
+record	Set up job	2026-11-17T13:02:12.2128615Z 24.04.5
+record	Set up job	2026-11-17T13:02:12.2129090Z LTS
+record	Set up job	2026-11-17T13:02:12.2129578Z ##[endgroup]
+record	Set up job	2026-11-17T13:02:12.2130162Z ##[group]Runner Image
+record	Set up job	2026-11-17T13:02:12.2130748Z Image: ubuntu-24.04
+record	Set up job	2026-11-17T13:02:12.2131465Z Version: 20261111.370.1
+record	Set up job	2026-11-17T13:02:12.2132735Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261111.370/images/ubuntu/Ubuntu2404-Readme.md
+record	Set up job	2026-11-17T13:02:12.2134807Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261111.370
+record	Set up job	2026-11-17T13:02:12.2135711Z ##[endgroup]
+record	Set up job	2026-11-17T13:02:12.2136761Z ##[group]GITHUB_TOKEN Permissions
+record	Set up job	2026-11-17T13:02:12.2138814Z Contents: write
+record	Set up job	2026-11-17T13:02:12.2139888Z Metadata: read
+record	Set up job	2026-11-17T13:02:12.2140431Z ##[endgroup]
+record	Set up job	2026-11-17T13:02:12.2142450Z Secret source: Actions
+record	Set up job	2026-11-17T13:02:12.2143328Z Cache mode: write
+record	Set up job	2026-11-17T13:02:12.2143984Z Prepare workflow directory
+record	Set up job	2026-11-17T13:02:12.2500249Z Prepare all required actions
+record	Set up job	2026-11-17T13:02:12.2546807Z Getting action download info
+record	Set up job	2026-11-17T13:02:12.6419466Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+record	Set up job	2026-11-17T13:02:12.7906055Z Download action repository 'docker/setup-buildx-action@v4' (SHA:f87e5991a6d7451dcb8d9637bfbc97413f497069)
+record	Set up job	2026-11-17T13:02:13.1795242Z Complete job name: record
+record	Run actions/checkout@v7	﻿2026-11-17T13:02:13.2548666Z ##[group]Run actions/checkout@v7
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2549552Z with:
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2550018Z   ref: main
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2550586Z   repository: islandawolfe-02/ARGO-CD-GitOPS-Deployments
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2554864Z   token: ***
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2555384Z   ssh-strict: true
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2555884Z   ssh-user: git
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2556378Z   persist-credentials: true
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2556892Z   clean: true
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2557423Z   sparse-checkout-cone-mode: true
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2558011Z   fetch-depth: 1
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2558494Z   fetch-tags: false
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2558991Z   show-progress: true
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2559490Z   lfs: false
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2559998Z   submodules: false
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2560511Z   set-safe-directory: true
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2561051Z   allow-unsafe-pr-checkout: false
+record	Run actions/checkout@v7	2026-11-17T13:02:13.2561799Z ##[endgroup]
+record	Run actions/checkout@v7	2026-11-17T13:02:13.5403918Z Syncing repository: islandawolfe-02/ARGO-CD-GitOPS-Deployments
+record	Run actions/checkout@v7	2026-11-17T13:02:13.5406817Z ##[group]Getting Git version info
+record	Run actions/checkout@v7	2026-11-17T13:02:13.5408405Z Working directory is '/home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments'
+record	Run actions/checkout@v7	2026-11-17T13:02:13.5410326Z [command]/usr/bin/git version
+record	Run actions/checkout@v7	2026-11-17T13:02:13.5492486Z git version 2.56.1
+record	Run actions/checkout@v7	2026-11-17T13:02:13.5511515Z ##[endgroup]
+record	Run actions/checkout@v7	2026-11-17T13:02:13.5520967Z Temporarily overriding HOME='/home/runner/work/_temp/653dd451-db0e-4ca8-b412-b864112fa159' before making global git config changes
+record	Run actions/checkout@v7	2026-11-17T13:02:13.5523314Z Adding repository directory to the temporary git global config as a safe directory
+record	Run actions/checkout@v7	2026-11-17T13:02:13.5531549Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments
+record	Run actions/checkout@v7	2026-11-17T13:02:13.5573750Z Deleting the contents of '/home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments'
+record	Run actions/checkout@v7	2026-11-17T13:02:13.5577994Z ##[group]Determining repository object format
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8566615Z ##[endgroup]
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8569350Z ##[group]Initializing the repository
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8575196Z [command]/usr/bin/git init /home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8689023Z hint: Using 'master' as the name for the initial branch. This default branch name
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8691505Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8693628Z hint: to use in all of your new repositories, which will suppress this warning,
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8695719Z hint: call:
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8697014Z hint:
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8698519Z hint: 	git config --global init.defaultBranch <name>
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8700245Z hint:
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8702026Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8704909Z hint: 'development'. The just-created branch can be renamed via this command:
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8707029Z hint:
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8708581Z hint: 	git branch -m <name>
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8710143Z hint:
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8712436Z hint: Disable this message with "git config set advice.defaultBranchName false"
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8715905Z Initialized empty Git repository in /home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments/.git/
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8722088Z [command]/usr/bin/git remote add origin https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8775406Z ##[endgroup]
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8778232Z ##[group]Disabling automatic garbage collection
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8780509Z [command]/usr/bin/git config --local gc.auto 0
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8824536Z ##[endgroup]
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8826492Z ##[group]Setting up auth
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8827840Z Removing SSH command configuration
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8834854Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+record	Run actions/checkout@v7	2026-11-17T13:02:13.8867035Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9195078Z Removing HTTP extra header
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9200452Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9247161Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9445279Z Removing includeIf entries pointing to credentials config files
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9448863Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9479820Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9667441Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-4ece0baf-5cec-4ad8-9873-d97ee7fc7061.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9707863Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments/.git.path /home/runner/work/_temp/git-credentials-4ece0baf-5cec-4ad8-9873-d97ee7fc7061.config
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9742880Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-4ece0baf-5cec-4ad8-9873-d97ee7fc7061.config
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9777120Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-4ece0baf-5cec-4ad8-9873-d97ee7fc7061.config
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9812255Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-4ece0baf-5cec-4ad8-9873-d97ee7fc7061.config
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9841631Z ##[endgroup]
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9843248Z ##[group]Fetching the repository
+record	Run actions/checkout@v7	2026-11-17T13:02:13.9850199Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4136983Z From https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4139839Z  * [new branch]      main       -> origin/main
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4145421Z ##[endgroup]
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4147818Z ##[group]Determining the checkout info
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4149514Z [command]/usr/bin/git branch --list --remote origin/main
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4188106Z   origin/main
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4193236Z ##[endgroup]
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4197530Z [command]/usr/bin/git sparse-checkout disable
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4258704Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4293466Z ##[group]Checking out the ref
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4296354Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4360664Z Switched to a new branch 'main'
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4365686Z branch 'main' set up to track 'origin/main'.
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4370758Z ##[endgroup]
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4409151Z [command]/usr/bin/git log -1 --format=%H
+record	Run actions/checkout@v7	2026-11-17T13:02:14.4435890Z e5a6b9f13f0a6d9c03ffaa01d6131302221071f9
+record	Test rendering and ownership checks	﻿2026-11-17T13:02:14.4690568Z ##[group]Run PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v
+record	Test rendering and ownership checks	2026-11-17T13:02:14.4693109Z ^[[36;1mPYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v^[[0m
+record	Test rendering and ownership checks	2026-11-17T13:02:14.4713769Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+record	Test rendering and ownership checks	2026-11-17T13:02:14.4715648Z ##[endgroup]
+record	Test rendering and ownership checks	2026-11-17T13:02:14.5834709Z test_additional_namespace_with_different_ports_is_allowed (test_deployments.DeploymentTests.test_additional_namespace_with_different_ports_is_allowed) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.5861053Z test_bootstrap_applies_only_after_all_preflight_checks (test_deployments.DeploymentTests.test_bootstrap_applies_only_after_all_preflight_checks) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.5883507Z test_bootstrap_checks_app_resources_before_apply (test_deployments.DeploymentTests.test_bootstrap_checks_app_resources_before_apply) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.5905336Z test_bootstrap_refuses_unowned_namespace_before_any_apply (test_deployments.DeploymentTests.test_bootstrap_refuses_unowned_namespace_before_any_apply) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.5924656Z test_bootstrap_restricts_argo_to_one_namespace_and_resource_file (test_deployments.DeploymentTests.test_bootstrap_restricts_argo_to_one_namespace_and_resource_file) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.5953944Z test_conflicting_namespace_and_local_ports_are_rejected (test_deployments.DeploymentTests.test_conflicting_namespace_and_local_ports_are_rejected) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.5970841Z test_manifest_isolation_and_port_routes (test_deployments.DeploymentTests.test_manifest_isolation_and_port_routes) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.5975876Z test_registry_requires_both_platforms_and_ignores_attestations (test_deployments.DeploymentTests.test_registry_requires_both_platforms_and_ignores_attestations) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6031264Z test_repeated_request_is_stable_and_setting_changes_roll_the_app (test_deployments.DeploymentTests.test_repeated_request_is_stable_and_setting_changes_roll_the_app) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6041064Z test_reserved_names_injection_and_invalid_identity_are_rejected (test_deployments.DeploymentTests.test_reserved_names_injection_and_invalid_identity_are_rejected) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6053136Z test_api_not_found_is_allowed_but_permission_and_server_errors_fail (test_parent.GuardTests.test_api_not_found_is_allowed_but_permission_and_server_errors_fail) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6058406Z test_api_read_uses_tls_and_a_get_request (test_parent.GuardTests.test_api_read_uses_tls_and_a_get_request) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6062129Z test_api_routes_namespaced_and_cluster_objects (test_parent.GuardTests.test_api_routes_namespaced_and_cluster_objects) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6066230Z test_existing_application_must_keep_its_path_project_and_destination (test_parent.GuardTests.test_existing_application_must_keep_its_path_project_and_destination) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6070553Z test_missing_or_already_owned_resources_are_allowed (test_parent.GuardTests.test_missing_or_already_owned_resources_are_allowed) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6073725Z test_unowned_resources_stop_the_guard (test_parent.GuardTests.test_unowned_resources_stop_the_guard) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6078064Z test_guard_runs_before_namespace_project_and_child_application (test_parent.HookTests.test_guard_runs_before_namespace_project_and_child_application) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6099262Z test_manual_fallback_does_not_apply_the_argo_hook (test_parent.HookTests.test_manual_fallback_does_not_apply_the_argo_hook) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6120258Z test_checked_in_records_match_the_current_renderer (test_parent.ParentTests.test_checked_in_records_match_the_current_renderer) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6125206Z test_guard_account_has_get_only_and_no_secret_or_write_access (test_parent.ParentTests.test_guard_account_has_get_only_and_no_secret_or_write_access) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6130678Z test_guard_config_uses_the_current_shared_ownership_code (test_parent.ParentTests.test_guard_config_uses_the_current_shared_ownership_code) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6137849Z test_parent_installer_preflights_every_seed_object_before_apply (test_parent.ParentTests.test_parent_installer_preflights_every_seed_object_before_apply) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6145043Z test_parent_installer_refuses_unowned_existing_objects_before_apply (test_parent.ParentTests.test_parent_installer_refuses_unowned_existing_objects_before_apply) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6151433Z test_parent_watches_only_bootstrap_without_pruning_or_finalizers (test_parent.ParentTests.test_parent_watches_only_bootstrap_without_pruning_or_finalizers) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6161558Z test_preview_cli_never_invokes_kubectl (test_parent.ParentTests.test_preview_cli_never_invokes_kubectl) ... ok
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6164444Z 
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6165579Z ----------------------------------------------------------------------
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6167765Z Ran 25 tests in 0.036s
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6168674Z 
+record	Test rendering and ownership checks	2026-11-17T13:02:14.6169152Z OK
+record	Validate request and render manifests	﻿2026-11-17T13:02:14.6416951Z ##[group]Run PYTHONDONTWRITEBYTECODE=1 python3 scripts/render.py
+record	Validate request and render manifests	2026-11-17T13:02:14.6418819Z ^[[36;1mPYTHONDONTWRITEBYTECODE=1 python3 scripts/render.py^[[0m
+record	Validate request and render manifests	2026-11-17T13:02:14.6434252Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+record	Validate request and render manifests	2026-11-17T13:02:14.6435764Z env:
+record	Validate request and render manifests	2026-11-17T13:02:14.6442231Z   INPUTS_JSON: {
+record	Validate request and render manifests	  "project": "foundation",
+record	Validate request and render manifests	  "source_repository": "islandawolfe-02/Basic-GitOps-using-Argo-CD-and-Minikube",
+record	Validate request and render manifests	  "source_revision": "ac66c172bfde067ba456318e24d88ef2999c16a6",
+record	Validate request and render manifests	  "image": "ghcr.io/islandawolfe-02/basic-gitops-using-argo-cd-and-minikube@sha256:4b3b56cb59b49a8d8cb0ebff070ce77d27e8e4bff0f35992c404b2ede9e3b88b",
+record	Validate request and render manifests	  "namespace": "cd-e2e-20261117-182740",
+record	Validate request and render manifests	  "deployment_name": "foundation-e2e",
+record	Validate request and render manifests	  "app_port": "18100",
+record	Validate request and render manifests	  "grafana_port": "3011",
+record	Validate request and render manifests	  "loki_port": "3111",
+record	Validate request and render manifests	  "lab_env": "workshop-green"
+record	Validate request and render manifests	}
+record	Validate request and render manifests	2026-11-17T13:02:14.6449312Z ##[endgroup]
+record	Validate request and render manifests	2026-11-17T13:02:14.6853174Z Prepared deployments/foundation/cd-e2e-20261117-182740/foundation-e2e
+record	Run docker/setup-buildx-action@v4	﻿2026-11-17T13:02:14.7083100Z ##[group]Run docker/setup-buildx-action@v4
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:14.7084385Z with:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:14.7085238Z   driver: docker-container
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:14.7086182Z   use: true
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:14.7087038Z   keep-state: false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:14.7087907Z   cache-binary: true
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:14.7088805Z   cleanup: true
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:14.7089632Z ##[endgroup]
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:14.8935593Z ##[group]Docker info
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:14.8955313Z [command]/usr/bin/docker version
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0468145Z Client: Docker Engine - Community
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0472077Z  Version:           28.0.4
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0473263Z  API version:       1.48
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0474391Z  Go version:        go1.23.7
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0475492Z  Git commit:        b8034c0
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0476708Z  Built:             Tue Mar 25 15:07:16 2025
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0478365Z  OS/Arch:           linux/amd64
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0479477Z  Context:           default
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0480180Z 
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0480807Z Server: Docker Engine - Community
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0482078Z  Engine:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0482867Z   Version:          28.0.4
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0483688Z   API version:      1.48 (minimum version 1.24)
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0484924Z   Go version:       go1.23.7
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0485748Z   Git commit:       6430e49
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0486826Z   Built:            Tue Mar 25 15:07:16 2025
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0487717Z   OS/Arch:          linux/amd64
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0488462Z   Experimental:     false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0489354Z  containerd:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0490281Z   Version:          v2.4.2
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0491392Z   GitCommit:        b7a25261e029d68978bbf290df0a62fc819b3c51
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0492862Z  runc:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0493869Z   Version:          1.5.2
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0495560Z   GitCommit:        v1.5.2-0-g29dd3dc2
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0496754Z  docker-init:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0498102Z   Version:          0.19.0
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0499076Z   GitCommit:        de40ad0
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.0511919Z [command]/usr/bin/docker info
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3287091Z Client: Docker Engine - Community
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3295586Z  Version:    28.0.4
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3296562Z  Context:    default
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3297414Z  Debug Mode: false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3298131Z  Plugins:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3298830Z   buildx: Docker Buildx (Docker Inc.)
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3299618Z     Version:  v0.38.2
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3300432Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3301296Z   compose: Docker Compose (Docker Inc.)
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3302073Z     Version:  v2.38.2
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3302837Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3303467Z 
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3304235Z Server:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3305470Z  Containers: 0
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3306101Z   Running: 0
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3306698Z   Paused: 0
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3307356Z   Stopped: 0
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3307954Z  Images: 6
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3308521Z  Server Version: 28.0.4
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3309209Z  Storage Driver: overlay2
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3309831Z   Backing Filesystem: extfs
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3310389Z   Supports d_type: true
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3310975Z   Using metacopy: false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3311761Z   Native Overlay Diff: false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3312542Z   userxattr: false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3313121Z  Logging Driver: json-file
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3313879Z  Cgroup Driver: systemd
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3314750Z  Cgroup Version: 2
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3315268Z  Plugins:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3315878Z   Volume: local
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3316604Z   Network: bridge host ipvlan macvlan null overlay
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3317662Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3318428Z  Swarm: inactive
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3319064Z  Runtimes: io.containerd.runc.v2 runc
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3319744Z  Default Runtime: runc
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3320504Z  Init Binary: docker-init
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3321506Z  containerd version: b7a25261e029d68978bbf290df0a62fc819b3c51
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3322696Z  runc version: v1.5.2-0-g29dd3dc2
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3323394Z  init version: de40ad0
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3323972Z  Security Options:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3324933Z   apparmor
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3325522Z   seccomp
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3326044Z    Profile: builtin
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3326653Z   cgroupns
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3327482Z  Kernel Version: 7.0.0-1017-azure
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3328253Z  Operating System: Ubuntu 24.04.5 LTS
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3328863Z  OSType: linux
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3329496Z  Architecture: x86_64
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3330083Z  CPUs: 4
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3330576Z  Total Memory: 15.61GiB
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3331109Z  Name: runnervm8axu0
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3331843Z  ID: 0fef2a29-aadb-43ca-98b5-edbc7a28f18a
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3332697Z  Docker Root Dir: /var/lib/docker
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3333296Z  Debug Mode: false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3333806Z  Username: githubactions
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3334638Z  Experimental: false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3335183Z  Insecure Registries:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3341023Z   ::1/128
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3341570Z   127.0.0.0/8
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3342136Z  Live Restore Enabled: false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3342659Z 
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3344409Z ##[endgroup]
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3972506Z ##[group]Buildx version
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.3994273Z [command]/usr/bin/docker buildx version
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4533056Z github.com/docker/buildx v0.38.2 3c4cbd35852fc1a476923627a780a7836c28b654
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4565238Z ##[endgroup]
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4766651Z ##[group]Inspecting default docker context
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4931951Z [
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4933083Z   {
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4933714Z     "Name": "default",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4934766Z     "Metadata": {},
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4936583Z     "Endpoints": {
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4937344Z       "docker": {
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4938093Z         "Host": "unix:///var/run/docker.sock",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4939139Z         "SkipTLSVerify": false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4939985Z       }
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4940541Z     },
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4941165Z     "TLSMaterial": {},
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4941914Z     "Storage": {
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4942648Z       "MetadataPath": "<IN MEMORY>",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4943487Z       "TLSPath": "<IN MEMORY>"
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4944483Z     }
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4945182Z   }
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4945896Z ]
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.4947176Z ##[endgroup]
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.5568493Z ##[group]Pulling BuildKit image(s)
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:15.5605845Z [command]/usr/bin/docker pull moby/buildkit:buildx-stable-1
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:16.6543640Z buildx-stable-1: Pulling from moby/buildkit
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:16.9198653Z 5e9b4a97f639: Pulling fs layer
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:16.9199995Z 7724148611ef: Pulling fs layer
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:16.9200610Z d9f5c1f157ca: Pulling fs layer
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:16.9201242Z b10da8a4f6de: Pulling fs layer
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:16.9202132Z 9ed6f1f484bf: Pulling fs layer
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:16.9202606Z 58b7f699d2bb: Pulling fs layer
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:16.9203118Z 78a4ff020a19: Pulling fs layer
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:16.9203636Z b10da8a4f6de: Waiting
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:16.9203959Z 9ed6f1f484bf: Waiting
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:16.9204653Z 58b7f699d2bb: Waiting
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:16.9204951Z 78a4ff020a19: Waiting
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.1639055Z d9f5c1f157ca: Verifying Checksum
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.1644462Z d9f5c1f157ca: Download complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.2220989Z 5e9b4a97f639: Verifying Checksum
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.2221617Z 5e9b4a97f639: Download complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.2353030Z 7724148611ef: Verifying Checksum
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.2353882Z 7724148611ef: Download complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.4102634Z b10da8a4f6de: Verifying Checksum
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.4103636Z b10da8a4f6de: Download complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.4122381Z 5e9b4a97f639: Pull complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.4691287Z 58b7f699d2bb: Download complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.6632864Z 78a4ff020a19: Download complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.8728658Z 9ed6f1f484bf: Verifying Checksum
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:17.8729126Z 9ed6f1f484bf: Download complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:19.9134773Z 7724148611ef: Pull complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:19.9263100Z d9f5c1f157ca: Pull complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:19.9350707Z b10da8a4f6de: Pull complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.1742323Z 9ed6f1f484bf: Pull complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.1872741Z 58b7f699d2bb: Pull complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.1967038Z 78a4ff020a19: Pull complete
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.2013564Z Digest: sha256:c5f8862f52499773af85bc07695b2379ef08e8002352b0df2c4864c91d78dabe
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.2032372Z Status: Downloaded newer image for moby/buildkit:buildx-stable-1
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.2042344Z docker.io/moby/buildkit:buildx-stable-1
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.2058449Z ##[endgroup]
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.2059216Z ##[group]Creating a new builder instance
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.2710398Z [command]/usr/bin/docker buildx create --name builder-954e5d1d-daef-48ca-8d9c-e80b11d787af --driver docker-container --buildkitd-flags --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host --use
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.3310271Z builder-954e5d1d-daef-48ca-8d9c-e80b11d787af
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.3332622Z ##[endgroup]
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.3333425Z ##[group]Booting builder
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.3376727Z [command]/usr/bin/docker buildx inspect --bootstrap --builder builder-954e5d1d-daef-48ca-8d9c-e80b11d787af
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.4109653Z #1 [internal] booting buildkit
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:22.5617373Z #1 pulling image moby/buildkit:buildx-stable-1
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.0220974Z #1 pulling image moby/buildkit:buildx-stable-1 0.6s done
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.1739186Z #1 creating container buildx_buildkit_builder-954e5d1d-daef-48ca-8d9c-e80b11d787af0
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.3875165Z #1 creating container buildx_buildkit_builder-954e5d1d-daef-48ca-8d9c-e80b11d787af0 0.4s done
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4204911Z #1 DONE 1.0s
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4505489Z Name:          builder-954e5d1d-daef-48ca-8d9c-e80b11d787af
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4506696Z Driver:        docker-container
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4507349Z Last Activity: 2026-11-17 13:02:22 +0000 UTC
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4507812Z 
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4508249Z Nodes:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4508849Z Name:                  builder-954e5d1d-daef-48ca-8d9c-e80b11d787af0
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4509516Z Endpoint:              unix:///var/run/docker.sock
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4510240Z Status:                running
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4511213Z BuildKit daemon flags: --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4512013Z BuildKit version:      v0.34.2
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4512729Z Platforms:             linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/amd64/v4, linux/386
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4513371Z Labels:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4513923Z  org.mobyproject.buildkit.worker.executor:         oci
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4514824Z  org.mobyproject.buildkit.worker.hostname:         55f4ff0413f3
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4515449Z  org.mobyproject.buildkit.worker.network:          host
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4516141Z  org.mobyproject.buildkit.worker.oci.process-mode: sandbox
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4516731Z  org.mobyproject.buildkit.worker.selinux.enabled:  false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4517414Z  org.mobyproject.buildkit.worker.snapshotter:      overlayfs
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4518034Z GC Policy rule#0:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4518454Z  All:            false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4519186Z  Filters:        type==source.local type==exec.cachemount type==source.git.checkout
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4519872Z  Keep Duration:  48h0m0s
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4520384Z  Max Used Space: 488.3MiB
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4520809Z GC Policy rule#1:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4521181Z  All:            false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4521619Z  Keep Duration:  1440h0m0s
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4522072Z  Reserved Space: 9.313GiB
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4522483Z  Max Used Space: 93.13GiB
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4523022Z  Min Free Space: 27.01GiB
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4523464Z GC Policy rule#2:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4523877Z  All:            false
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4524469Z  Reserved Space: 9.313GiB
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4524876Z  Max Used Space: 93.13GiB
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4525330Z  Min Free Space: 27.01GiB
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4526007Z GC Policy rule#3:
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4526383Z  All:            true
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4526827Z  Reserved Space: 9.313GiB
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4527275Z  Max Used Space: 93.13GiB
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4527783Z  Min Free Space: 27.01GiB
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.4554792Z ##[endgroup]
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5451844Z ##[group]Inspect builder
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5506705Z {
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5507173Z   "nodes": [
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5507570Z     {
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5507953Z       "name": "builder-954e5d1d-daef-48ca-8d9c-e80b11d787af0",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5508408Z       "endpoint": "unix:///var/run/docker.sock",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5508931Z       "status": "running",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5509806Z       "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5510871Z       "buildkit": "v0.34.2",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5511548Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/386",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5512046Z       "features": {
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5512436Z         "Automatically load images to the Docker Engine image store": true,
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5512861Z         "Cache export": true,
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5513217Z         "Direct push": true,
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5513560Z         "Docker exporter": true,
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5513940Z         "Multi-platform build": true,
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5514567Z         "OCI exporter": true
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5514928Z       },
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5515260Z       "labels": {
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5515690Z         "org.mobyproject.buildkit.worker.executor": "oci",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5516184Z         "org.mobyproject.buildkit.worker.hostname": "55f4ff0413f3",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5516666Z         "org.mobyproject.buildkit.worker.network": "host",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5517258Z         "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5517819Z         "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5518348Z         "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5518843Z       },
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5519210Z       "gcPolicy": [
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5519597Z         {
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5519972Z           "all": false,
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5520352Z           "filter": [
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5520814Z             "type==source.local type==exec.cachemount type==source.git.checkout"
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5521367Z           ],
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5521702Z           "keepDuration": "48h0m0s",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5522099Z           "maxUsedSpace": "488.3MiB"
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5522498Z         },
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5522879Z         {
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5523317Z           "all": false,
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5523704Z           "keepDuration": "1440h0m0s",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5524282Z           "reservedSpace": "9.313GiB",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5524746Z           "maxUsedSpace": "93.13GiB",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5525187Z           "minFreeSpace": "27.01GiB"
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5525626Z         },
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5525966Z         {
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5526320Z           "all": false,
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5526793Z           "reservedSpace": "9.313GiB",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5527279Z           "maxUsedSpace": "93.13GiB",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5527722Z           "minFreeSpace": "27.01GiB"
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5528195Z         },
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5528606Z         {
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5529073Z           "all": true,
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5529453Z           "reservedSpace": "9.313GiB",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5529885Z           "maxUsedSpace": "93.13GiB",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5530328Z           "minFreeSpace": "27.01GiB"
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5530741Z         }
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5531137Z       ]
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5531507Z     }
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5531842Z   ],
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5532319Z   "name": "builder-954e5d1d-daef-48ca-8d9c-e80b11d787af",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5532830Z   "driver": "docker-container",
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5533348Z   "lastActivity": "2026-11-17T13:02:22.000Z"
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5533948Z }
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5534955Z ##[endgroup]
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5535814Z ##[group]BuildKit version
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5536291Z builder-954e5d1d-daef-48ca-8d9c-e80b11d787af0: v0.34.2
+record	Run docker/setup-buildx-action@v4	2026-11-17T13:02:23.5537017Z ##[endgroup]
+record	Check public registry image and supported platforms	﻿2026-11-17T13:02:23.5623965Z ##[group]Run docker buildx imagetools inspect --raw "$IMAGE" > /tmp/deployment-index.json
+record	Check public registry image and supported platforms	2026-11-17T13:02:23.5624939Z ^[[36;1mdocker buildx imagetools inspect --raw "$IMAGE" > /tmp/deployment-index.json^[[0m
+record	Check public registry image and supported platforms	2026-11-17T13:02:23.5625493Z ^[[36;1mPYTHONPATH=scripts python3 - <<'PY'^[[0m
+record	Check public registry image and supported platforms	2026-11-17T13:02:23.5625893Z ^[[36;1mimport json^[[0m
+record	Check public registry image and supported platforms	2026-11-17T13:02:23.5626187Z ^[[36;1mfrom pathlib import Path^[[0m
+record	Check public registry image and supported platforms	2026-11-17T13:02:23.5626587Z ^[[36;1mfrom render import validate_platforms^[[0m
+record	Check public registry image and supported platforms	2026-11-17T13:02:23.5626984Z ^[[36;1m^[[0m
+record	Check public registry image and supported platforms	2026-11-17T13:02:23.5627557Z ^[[36;1mvalidate_platforms(json.loads(Path('/tmp/deployment-index.json').read_text()))^[[0m
+record	Check public registry image and supported platforms	2026-11-17T13:02:23.5628048Z ^[[36;1mPY^[[0m
+record	Check public registry image and supported platforms	2026-11-17T13:02:23.5642655Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+record	Check public registry image and supported platforms	2026-11-17T13:02:23.5643067Z env:
+record	Check public registry image and supported platforms	2026-11-17T13:02:23.5643778Z   IMAGE: ghcr.io/islandawolfe-02/basic-gitops-using-argo-cd-and-minikube@sha256:4b3b56cb59b49a8d8cb0ebff070ce77d27e8e4bff0f35992c404b2ede9e3b88b
+record	Check public registry image and supported platforms	2026-11-17T13:02:23.5644700Z ##[endgroup]
+record	Commit deployment configuration	﻿2026-11-17T13:02:24.0492875Z ##[group]Run git config user.name 'github-actions[bot]'
+record	Commit deployment configuration	2026-11-17T13:02:24.0493374Z ^[[36;1mgit config user.name 'github-actions[bot]'^[[0m
+record	Commit deployment configuration	2026-11-17T13:02:24.0493926Z ^[[36;1mgit config user.email '41898282+github-actions[bot]@users.noreply.github.com'^[[0m
+record	Commit deployment configuration	2026-11-17T13:02:24.0494815Z ^[[36;1mgit add -- deployments/ bootstrap/^[[0m
+record	Commit deployment configuration	2026-11-17T13:02:24.0495211Z ^[[36;1mif ! git diff --cached --quiet; then^[[0m
+record	Commit deployment configuration	2026-11-17T13:02:24.0495652Z ^[[36;1m  git commit -m "Update deployment $DEPLOYMENT_ID"^[[0m
+record	Commit deployment configuration	2026-11-17T13:02:24.0496068Z ^[[36;1m  git push origin HEAD:main^[[0m
+record	Commit deployment configuration	2026-11-17T13:02:24.0496376Z ^[[36;1mfi^[[0m
+record	Commit deployment configuration	2026-11-17T13:02:24.0510277Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+record	Commit deployment configuration	2026-11-17T13:02:24.0510733Z env:
+record	Commit deployment configuration	2026-11-17T13:02:24.0511056Z   DEPLOYMENT_ID: cd-0c71e7859fdc6cc9
+record	Commit deployment configuration	2026-11-17T13:02:24.0511385Z ##[endgroup]
+record	Commit deployment configuration	2026-11-17T13:02:24.0775487Z [main b7410ed] Update deployment cd-0c71e7859fdc6cc9
+record	Commit deployment configuration	2026-11-17T13:02:24.0776280Z  4 files changed, 538 insertions(+)
+record	Commit deployment configuration	2026-11-17T13:02:24.0776972Z  create mode 100644 bootstrap/cd-0c71e7859fdc6cc9.json
+record	Commit deployment configuration	2026-11-17T13:02:24.0778084Z  create mode 100644 deployments/foundation/cd-e2e-20261117-182740/foundation-e2e/commands.txt
+record	Commit deployment configuration	2026-11-17T13:02:24.0779121Z  create mode 100644 deployments/foundation/cd-e2e-20261117-182740/foundation-e2e/record.json
+record	Commit deployment configuration	2026-11-17T13:02:24.0779811Z  create mode 100644 deployments/foundation/cd-e2e-20261117-182740/foundation-e2e/resources.json
+record	Commit deployment configuration	2026-11-17T13:02:25.7603953Z To https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments
+record	Commit deployment configuration	2026-11-17T13:02:25.7604852Z    e5a6b9f..b7410ed  HEAD -> main
+record	Show automatic registration and access commands	﻿2026-11-17T13:02:25.7682595Z ##[group]Run {
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7682982Z ^[[36;1m{^[[0m
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7683332Z ^[[36;1m  echo '### Deployment configuration recorded'^[[0m
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7683783Z ^[[36;1m  echo "Deployment ID: $DEPLOYMENT_ID"^[[0m
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7684793Z ^[[36;1m  echo 'The parent Argo Application cd-bootstrap registers this installation automatically after its ownership checks pass.'^[[0m
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7685653Z ^[[36;1m  echo 'One-time setup on a new cluster: python3 scripts/parent.py --install (see README).'^[[0m
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7686271Z ^[[36;1m  echo 'Run each port-forward command in a separate terminal.'^[[0m
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7686805Z ^[[36;1m  echo '```bash'^[[0m
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7687158Z ^[[36;1m  cat "$DEPLOYMENT_PATH/commands.txt"^[[0m
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7687513Z ^[[36;1m  echo '```'^[[0m
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7688114Z ^[[36;1m  echo 'Wait for the child Application to become Synced/Healthy and verify the Pods before recording deployment success.'^[[0m
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7688983Z ^[[36;1m  echo 'This workflow records configuration; it does not contact the cluster or start Mac port-forwards.'^[[0m
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7689701Z ^[[36;1m} >> "$GITHUB_STEP_SUMMARY"^[[0m
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7703455Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7703889Z env:
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7704482Z   DEPLOYMENT_ID: cd-0c71e7859fdc6cc9
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7705005Z   DEPLOYMENT_PATH: deployments/foundation/cd-e2e-20261117-182740/foundation-e2e
+record	Show automatic registration and access commands	2026-11-17T13:02:25.7705475Z ##[endgroup]
+record	Post Run docker/setup-buildx-action@v4	﻿2026-11-17T13:02:25.7862495Z Post job cleanup.
+record	Post Run docker/setup-buildx-action@v4	2026-11-17T13:02:25.9533870Z ##[group]Removing builder
+record	Post Run docker/setup-buildx-action@v4	2026-11-17T13:02:26.0934433Z [command]/usr/bin/docker buildx rm builder-954e5d1d-daef-48ca-8d9c-e80b11d787af
+record	Post Run docker/setup-buildx-action@v4	2026-11-17T13:02:26.2350987Z builder-954e5d1d-daef-48ca-8d9c-e80b11d787af removed
+record	Post Run docker/setup-buildx-action@v4	2026-11-17T13:02:26.2376276Z ##[endgroup]
+record	Post Run docker/setup-buildx-action@v4	2026-11-17T13:02:26.2377275Z ##[group]Cleaning up certificates
+record	Post Run docker/setup-buildx-action@v4	2026-11-17T13:02:26.2378333Z ##[endgroup]
+record	Post Run docker/setup-buildx-action@v4	2026-11-17T13:02:26.2379344Z ##[group]Post cache
+record	Post Run docker/setup-buildx-action@v4	2026-11-17T13:02:26.2380144Z State not set
+record	Post Run docker/setup-buildx-action@v4	2026-11-17T13:02:26.2381120Z ##[endgroup]
+record	Post Run actions/checkout@v7	﻿2026-11-17T13:02:26.2522782Z Post job cleanup.
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3368378Z [command]/usr/bin/git version
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3404436Z git version 2.56.1
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3436547Z Temporarily overriding HOME='/home/runner/work/_temp/8d291bfe-29c1-4237-a06b-8db8caac0c08' before making global git config changes
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3441516Z Adding repository directory to the temporary git global config as a safe directory
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3442968Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3470436Z Removing SSH command configuration
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3476579Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3507858Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3705792Z Removing HTTP extra header
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3710800Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3738541Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3938588Z Removing includeIf entries pointing to credentials config files
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3943785Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3966042Z includeif.gitdir:/home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments/.git.path
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3967441Z includeif.gitdir:/home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments/.git/worktrees/*.path
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3969026Z includeif.gitdir:/github/workspace/.git.path
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3970214Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3975998Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments/.git.path
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.3993579Z /home/runner/work/_temp/git-credentials-4ece0baf-5cec-4ad8-9873-d97ee7fc7061.config
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.4005451Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-4ece0baf\-5cec\-4ad8\-9873\-d97ee7fc7061\.config
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.4122653Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments/.git/worktrees/*.path
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.4148568Z /home/runner/work/_temp/git-credentials-4ece0baf-5cec-4ad8-9873-d97ee7fc7061.config
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.4158613Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/ARGO-CD-GitOPS-Deployments/ARGO-CD-GitOPS-Deployments/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-4ece0baf\-5cec\-4ad8\-9873\-d97ee7fc7061\.config
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.4198940Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.4222077Z /github/runner_temp/git-credentials-4ece0baf-5cec-4ad8-9873-d97ee7fc7061.config
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.4229538Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-4ece0baf\-5cec\-4ad8\-9873\-d97ee7fc7061\.config
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.4263504Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.4285601Z /github/runner_temp/git-credentials-4ece0baf-5cec-4ad8-9873-d97ee7fc7061.config
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.4293276Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-4ece0baf\-5cec\-4ad8\-9873\-d97ee7fc7061\.config
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.4327071Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+record	Post Run actions/checkout@v7	2026-11-17T13:02:26.4504473Z Removing credentials config '/home/runner/work/_temp/git-credentials-4ece0baf-5cec-4ad8-9873-d97ee7fc7061.config'
+record	Complete job	﻿2026-11-17T13:02:26.4638074Z Cleaning up orphan processes

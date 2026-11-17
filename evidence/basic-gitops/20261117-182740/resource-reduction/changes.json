@@ -1,0 +1,218 @@
+{
+  "started_at_utc": "2026-11-17T13:51:12.954724+00:00",
+  "context": "minikube",
+  "retained_namespace": "cd-e2e-20261117-182740",
+  "applications": [
+    {
+      "namespace": "argocd",
+      "name": "cd-d2fd1193f253ec65",
+      "previous_skip_reconcile": "not captured; remove only this pause annotation when resuming"
+    },
+    {
+      "namespace": "argocd",
+      "name": "order-integration-dev",
+      "previous_skip_reconcile": "not captured; remove only this pause annotation when resuming"
+    },
+    {
+      "namespace": "argocd",
+      "name": "order-integration-prod",
+      "previous_skip_reconcile": "not captured; remove only this pause annotation when resuming"
+    },
+    {
+      "namespace": "argocd",
+      "name": "order-integration-test",
+      "previous_skip_reconcile": "not captured; remove only this pause annotation when resuming"
+    },
+    {
+      "namespace": "argocd",
+      "name": "p1-islandawolfe-02",
+      "previous_skip_reconcile": "not captured; remove only this pause annotation when resuming"
+    }
+  ],
+  "deployments": [
+    {
+      "namespace": "observability",
+      "name": "grafana",
+      "previous_replicas": 1
+    },
+    {
+      "namespace": "observability",
+      "name": "loki",
+      "previous_replicas": 1
+    },
+    {
+      "namespace": "demo-app",
+      "name": "app",
+      "previous_replicas": 1
+    },
+    {
+      "namespace": "demo-app",
+      "name": "grafana",
+      "previous_replicas": 1
+    },
+    {
+      "namespace": "demo-app",
+      "name": "loki",
+      "previous_replicas": 1
+    },
+    {
+      "namespace": "order-dev",
+      "name": "mock-order-api",
+      "previous_replicas": 1
+    },
+    {
+      "namespace": "order-dev",
+      "name": "order-integration",
+      "previous_replicas": 1
+    },
+    {
+      "namespace": "order-prod",
+      "name": "mock-order-api",
+      "previous_replicas": 1
+    },
+    {
+      "namespace": "order-prod",
+      "name": "order-integration",
+      "previous_replicas": 2
+    },
+    {
+      "namespace": "order-test",
+      "name": "mock-order-api",
+      "previous_replicas": 1
+    },
+    {
+      "namespace": "order-test",
+      "name": "order-integration",
+      "previous_replicas": 1
+    },
+    {
+      "namespace": "p1-islandawolfe-02",
+      "name": "foundation",
+      "previous_replicas": 1
+    }
+  ],
+  "completed_actions": [
+    {
+      "action": "scale_to_zero",
+      "namespace": "observability",
+      "name": "grafana",
+      "previous_replicas": 1
+    },
+    {
+      "action": "scale_to_zero",
+      "namespace": "observability",
+      "name": "loki",
+      "previous_replicas": 1
+    },
+    {
+      "action": "pause_reconciliation",
+      "namespace": "argocd",
+      "name": "cd-d2fd1193f253ec65",
+      "previous_skip_reconcile": "not captured; remove only this pause annotation when resuming"
+    },
+    {
+      "action": "pause_reconciliation",
+      "namespace": "argocd",
+      "name": "order-integration-dev",
+      "previous_skip_reconcile": "not captured; remove only this pause annotation when resuming"
+    },
+    {
+      "action": "pause_reconciliation",
+      "namespace": "argocd",
+      "name": "order-integration-prod",
+      "previous_skip_reconcile": "not captured; remove only this pause annotation when resuming"
+    },
+    {
+      "action": "pause_reconciliation",
+      "namespace": "argocd",
+      "name": "order-integration-test",
+      "previous_skip_reconcile": "not captured; remove only this pause annotation when resuming"
+    },
+    {
+      "action": "pause_reconciliation",
+      "namespace": "argocd",
+      "name": "p1-islandawolfe-02",
+      "previous_skip_reconcile": "not captured; remove only this pause annotation when resuming"
+    },
+    {
+      "action": "scale_to_zero",
+      "namespace": "demo-app",
+      "name": "app",
+      "previous_replicas": 1
+    },
+    {
+      "action": "scale_to_zero",
+      "namespace": "demo-app",
+      "name": "grafana",
+      "previous_replicas": 1
+    },
+    {
+      "action": "scale_to_zero",
+      "namespace": "demo-app",
+      "name": "loki",
+      "previous_replicas": 1
+    },
+    {
+      "action": "scale_to_zero",
+      "namespace": "order-dev",
+      "name": "mock-order-api",
+      "previous_replicas": 1
+    },
+    {
+      "action": "scale_to_zero",
+      "namespace": "order-dev",
+      "name": "order-integration",
+      "previous_replicas": 1
+    },
+    {
+      "action": "scale_to_zero",
+      "namespace": "order-prod",
+      "name": "mock-order-api",
+      "previous_replicas": 1
+    },
+    {
+      "action": "scale_to_zero",
+      "namespace": "order-prod",
+      "name": "order-integration",
+      "previous_replicas": 2
+    },
+    {
+      "action": "scale_to_zero",
+      "namespace": "order-test",
+      "name": "mock-order-api",
+      "previous_replicas": 1
+    },
+    {
+      "action": "scale_to_zero",
+      "namespace": "order-test",
+      "name": "order-integration",
+      "previous_replicas": 1
+    },
+    {
+      "action": "scale_to_zero",
+      "namespace": "p1-islandawolfe-02",
+      "name": "foundation",
+      "previous_replicas": 1
+    },
+    {
+      "action": "repeat_scale_to_zero_after_queued_recreation",
+      "namespace": "demo-app",
+      "deployments": [
+        "app",
+        "grafana",
+        "loki"
+      ],
+      "observed_at_utc": "2026-11-17T13:54:29.579590+00:00"
+    },
+    {
+      "action": "repeat_scale_to_zero_after_queued_recreation",
+      "namespace": "order-prod",
+      "deployments": [
+        "mock-order-api",
+        "order-integration"
+      ],
+      "observed_at_utc": "2026-11-17T13:54:30.019454+00:00"
+    }
+  ],
+  "completed_at_utc": "2026-11-17T13:51:45.019148+00:00"
+}

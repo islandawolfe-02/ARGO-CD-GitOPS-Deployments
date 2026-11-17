@@ -1,0 +1,192 @@
+{
+  "observed_at_utc": "2026-11-17T13:56:36.644891+00:00",
+  "pods": [
+    {
+      "namespace": "argocd",
+      "name": "argocd-application-controller-0",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 4
+        }
+      ]
+    },
+    {
+      "namespace": "argocd",
+      "name": "argocd-applicationset-controller-79bbd8c9cd-p5trk",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 5
+        }
+      ]
+    },
+    {
+      "namespace": "argocd",
+      "name": "argocd-dex-server-8666767789-zqd74",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 7
+        }
+      ]
+    },
+    {
+      "namespace": "argocd",
+      "name": "argocd-notifications-controller-797f48b4-jxpgj",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 8
+        }
+      ]
+    },
+    {
+      "namespace": "argocd",
+      "name": "argocd-redis-5f664b9b9c-4czt4",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 4
+        }
+      ]
+    },
+    {
+      "namespace": "argocd",
+      "name": "argocd-repo-server-7f58d7cdf7-cxq9t",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 7
+        }
+      ]
+    },
+    {
+      "namespace": "argocd",
+      "name": "argocd-server-59bd8b5c4-ms2mj",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 11
+        }
+      ]
+    },
+    {
+      "namespace": "cd-e2e-20261117-182740",
+      "name": "app-cd8c66677-nzshk",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 9
+        }
+      ]
+    },
+    {
+      "namespace": "cd-e2e-20261117-182740",
+      "name": "grafana-6c5d4cc74-6zwdb",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 0
+        }
+      ]
+    },
+    {
+      "namespace": "cd-e2e-20261117-182740",
+      "name": "loki-76cfd68b98-96lgd",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 0
+        }
+      ]
+    },
+    {
+      "namespace": "kube-system",
+      "name": "coredns-7d764666f9-xscsb",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 12
+        }
+      ]
+    },
+    {
+      "namespace": "kube-system",
+      "name": "etcd-minikube",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 12
+        }
+      ]
+    },
+    {
+      "namespace": "kube-system",
+      "name": "kube-apiserver-minikube",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 12
+        }
+      ]
+    },
+    {
+      "namespace": "kube-system",
+      "name": "kube-controller-manager-minikube",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 13
+        }
+      ]
+    },
+    {
+      "namespace": "kube-system",
+      "name": "kube-proxy-xqblv",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 12
+        }
+      ]
+    },
+    {
+      "namespace": "kube-system",
+      "name": "kube-scheduler-minikube",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 12
+        }
+      ]
+    },
+    {
+      "namespace": "kube-system",
+      "name": "storage-provisioner",
+      "phase": "Running",
+      "containers": [
+        {
+          "ready": true,
+          "restarts": 36
+        }
+      ]
+    }
+  ]
+}

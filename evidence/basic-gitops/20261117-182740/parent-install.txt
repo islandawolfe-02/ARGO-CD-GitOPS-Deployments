@@ -1,0 +1,6 @@
+serviceaccount/cd-bootstrap-guard created
+clusterrole.rbac.authorization.k8s.io/cd-bootstrap-guard created
+clusterrolebinding.rbac.authorization.k8s.io/cd-bootstrap-guard created
+configmap/cd-bootstrap-guard created
+appproject.argoproj.io/cd-bootstrap created
+application.argoproj.io/cd-bootstrap created

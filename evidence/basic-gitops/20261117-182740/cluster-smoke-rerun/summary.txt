@@ -1,0 +1,5 @@
+Initial cluster smoke: FAIL; API requests received no HTTP response.
+Diagnostic rerun: PASS.
+Rerun request ID: smoke-20261117T132709Z-30893.
+Four app restarts followed liveness-probe failures.
+Minikube memory usage observed at 97% of 3 GB.

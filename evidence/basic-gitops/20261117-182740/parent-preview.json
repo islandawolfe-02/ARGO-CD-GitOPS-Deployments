@@ -1,0 +1,221 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "ServiceAccount",
+      "metadata": {
+        "name": "cd-bootstrap-guard",
+        "labels": {
+          "gitops/deployment-id": "cd-bootstrap"
+        },
+        "namespace": "argocd"
+      }
+    },
+    {
+      "apiVersion": "rbac.authorization.k8s.io/v1",
+      "kind": "ClusterRole",
+      "metadata": {
+        "name": "cd-bootstrap-guard",
+        "labels": {
+          "gitops/deployment-id": "cd-bootstrap"
+        }
+      },
+      "rules": [
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "namespaces"
+          ],
+          "verbs": [
+            "get"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "configmaps"
+          ],
+          "resourceNames": [
+            "app-settings",
+            "grafana-provisioning"
+          ],
+          "verbs": [
+            "get"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "services"
+          ],
+          "resourceNames": [
+            "app",
+            "loki",
+            "grafana"
+          ],
+          "verbs": [
+            "get"
+          ]
+        },
+        {
+          "apiGroups": [
+            "apps"
+          ],
+          "resources": [
+            "deployments"
+          ],
+          "resourceNames": [
+            "app",
+            "loki",
+            "grafana"
+          ],
+          "verbs": [
+            "get"
+          ]
+        },
+        {
+          "apiGroups": [
+            "argoproj.io"
+          ],
+          "resources": [
+            "applications",
+            "appprojects"
+          ],
+          "verbs": [
+            "get"
+          ]
+        }
+      ]
+    },
+    {
+      "apiVersion": "rbac.authorization.k8s.io/v1",
+      "kind": "ClusterRoleBinding",
+      "metadata": {
+        "name": "cd-bootstrap-guard",
+        "labels": {
+          "gitops/deployment-id": "cd-bootstrap"
+        }
+      },
+      "roleRef": {
+        "apiGroup": "rbac.authorization.k8s.io",
+        "kind": "ClusterRole",
+        "name": "cd-bootstrap-guard"
+      },
+      "subjects": [
+        {
+          "kind": "ServiceAccount",
+          "name": "cd-bootstrap-guard",
+          "namespace": "argocd"
+        }
+      ]
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "ConfigMap",
+      "metadata": {
+        "name": "cd-bootstrap-guard",
+        "labels": {
+          "gitops/deployment-id": "cd-bootstrap"
+        },
+        "namespace": "argocd"
+      },
+      "data": {
+        "guard.py": "\"\"\"Argo PreSync ownership check; authenticates using a read-only service account.\"\"\"\n\nimport json\nimport os\nimport ssl\nfrom pathlib import Path\nfrom urllib.error import HTTPError\nfrom urllib.parse import quote\nfrom urllib.request import Request, urlopen\n\nfrom ownership import check_existing\n\nRESOURCES = {\n    'Namespace': ('v1', 'namespaces'),\n    'ConfigMap': ('v1', 'configmaps'),\n    'Service': ('v1', 'services'),\n    'Deployment': ('apps/v1', 'deployments'),\n    'Application': ('argoproj.io/v1alpha1', 'applications'),\n    'AppProject': ('argoproj.io/v1alpha1', 'appprojects'),\n}\n\n\ndef resource_path(item):\n    version, plural = RESOURCES[item['kind']]\n    path = '/api/' + version if version == 'v1' else '/apis/' + version\n    namespace = item['metadata'].get('namespace')\n    if namespace:\n        path += '/namespaces/' + quote(namespace, safe='')\n    return path + '/' + plural + '/' + quote(item['metadata']['name'], safe='')\n\n\ndef read_resource(item, token, context):\n    request = Request('https://kubernetes.default.svc' + resource_path(item),\n                      headers={'Authorization': 'Bearer ' + token})\n    try:\n        with urlopen(request, context=context, timeout=5) as response:\n            return json.load(response)\n    except HTTPError as error:\n        if error.code == 404:\n            return None\n        raise RuntimeError(f'Cannot check {resource_path(item)}: Kubernetes HTTP {error.code}') from None\n\n\ndef check_resources(items, read):\n    for item in items:\n        existing = read(item)\n        if existing is not None:\n            check_existing(item, existing)\n\n\nif __name__ == '__main__':\n    try:\n        account = Path('/var/run/secrets/kubernetes.io/serviceaccount')\n        token = (account / 'token').read_text().strip()\n        context = ssl.create_default_context(cafile=str(account / 'ca.crt'))\n        check_resources(json.loads(os.environ['EXPECTED_RESOURCES']),\n                        lambda item: read_resource(item, token, context))\n    except (ValueError, KeyError, OSError, RuntimeError) as error:\n        raise SystemExit(str(error))\n    print('Ownership checks passed; automatic registration may proceed.')\n",
+        "ownership.py": "\"\"\"Ownership rules shared by manual bootstrap and Argo's read-only guard.\"\"\"\n\nREPOSITORY = 'https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments.git'\nOWNER_LABEL = 'gitops/deployment-id'\n\n\ndef check_existing(expected, existing):\n    owner = expected['metadata']['labels'][OWNER_LABEL]\n    if existing.get('metadata', {}).get('labels', {}).get(OWNER_LABEL) != owner:\n        raise ValueError(f'Refusing to take over {expected[\"kind\"]}/{expected[\"metadata\"][\"name\"]}: missing or different deployment owner')\n    if expected['kind'] == 'Application':\n        actual = existing.get('spec', {})\n        desired = expected['spec']\n        if (actual.get('source', {}).get('repoURL') != REPOSITORY\n                or actual.get('source', {}).get('path') != desired['source']['path']\n                or actual.get('project') != desired['project']\n                or actual.get('destination') != desired['destination']):\n            raise ValueError('Existing Application targets a different repository, path, project or destination')\n"
+      }
+    },
+    {
+      "apiVersion": "argoproj.io/v1alpha1",
+      "kind": "AppProject",
+      "metadata": {
+        "name": "cd-bootstrap",
+        "labels": {
+          "gitops/deployment-id": "cd-bootstrap"
+        },
+        "namespace": "argocd"
+      },
+      "spec": {
+        "sourceRepos": [
+          "https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments.git"
+        ],
+        "destinations": [
+          {
+            "server": "https://kubernetes.default.svc",
+            "namespace": "argocd"
+          }
+        ],
+        "clusterResourceWhitelist": [
+          {
+            "group": "",
+            "kind": "Namespace"
+          }
+        ],
+        "namespaceResourceWhitelist": [
+          {
+            "group": "argoproj.io",
+            "kind": "Application"
+          },
+          {
+            "group": "argoproj.io",
+            "kind": "AppProject"
+          },
+          {
+            "group": "batch",
+            "kind": "Job"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "argoproj.io/v1alpha1",
+      "kind": "Application",
+      "metadata": {
+        "name": "cd-bootstrap",
+        "labels": {
+          "gitops/deployment-id": "cd-bootstrap"
+        },
+        "namespace": "argocd"
+      },
+      "spec": {
+        "project": "cd-bootstrap",
+        "source": {
+          "repoURL": "https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments.git",
+          "targetRevision": "main",
+          "path": "bootstrap",
+          "directory": {
+            "include": "cd-*.json"
+          }
+        },
+        "destination": {
+          "server": "https://kubernetes.default.svc",
+          "namespace": "argocd"
+        },
+        "syncPolicy": {
+          "automated": {
+            "prune": false,
+            "selfHeal": true
+          },
+          "syncOptions": [
+            "FailOnSharedResource=true"
+          ],
+          "retry": {
+            "limit": 3,
+            "backoff": {
+              "duration": "5s",
+              "factor": 2,
+              "maxDuration": "30s"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
