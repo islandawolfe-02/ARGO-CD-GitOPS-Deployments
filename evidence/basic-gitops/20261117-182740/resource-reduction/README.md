@@ -1,7 +1,7 @@
 # Cluster resource reduction
 
 The original test encountered API timeouts, liveness restarts and high memory
-usage. At the owner's request, the other application workloads were stopped.
+usage. The other application workloads were stopped.
 
 - Kept the app, Loki and Grafana in `cd-e2e-20261117-182740`.
 - Kept Argo CD and the Kubernetes system workloads.
