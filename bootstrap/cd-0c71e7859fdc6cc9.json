@@ -1,0 +1,192 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Namespace",
+      "metadata": {
+        "name": "cd-e2e-20261117-182740",
+        "labels": {
+          "gitops/deployment-id": "cd-0c71e7859fdc6cc9"
+        },
+        "annotations": {
+          "argocd.argoproj.io/sync-wave": "-2"
+        }
+      }
+    },
+    {
+      "apiVersion": "argoproj.io/v1alpha1",
+      "kind": "AppProject",
+      "metadata": {
+        "name": "cd-0c71e7859fdc6cc9",
+        "namespace": "argocd",
+        "labels": {
+          "gitops/deployment-id": "cd-0c71e7859fdc6cc9"
+        },
+        "annotations": {
+          "argocd.argoproj.io/sync-wave": "-1"
+        }
+      },
+      "spec": {
+        "sourceRepos": [
+          "https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments.git"
+        ],
+        "destinations": [
+          {
+            "server": "https://kubernetes.default.svc",
+            "namespace": "cd-e2e-20261117-182740"
+          }
+        ],
+        "clusterResourceWhitelist": [],
+        "namespaceResourceWhitelist": [
+          {
+            "group": "",
+            "kind": "ConfigMap"
+          },
+          {
+            "group": "",
+            "kind": "Service"
+          },
+          {
+            "group": "apps",
+            "kind": "Deployment"
+          },
+          {
+            "group": "",
+            "kind": "Pod"
+          },
+          {
+            "group": "apps",
+            "kind": "ReplicaSet"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "argoproj.io/v1alpha1",
+      "kind": "Application",
+      "metadata": {
+        "name": "cd-0c71e7859fdc6cc9",
+        "namespace": "argocd",
+        "labels": {
+          "gitops/deployment-id": "cd-0c71e7859fdc6cc9"
+        },
+        "annotations": {
+          "argocd.argoproj.io/sync-wave": "0"
+        }
+      },
+      "spec": {
+        "project": "cd-0c71e7859fdc6cc9",
+        "source": {
+          "repoURL": "https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments.git",
+          "targetRevision": "main",
+          "path": "deployments/foundation/cd-e2e-20261117-182740/foundation-e2e",
+          "directory": {
+            "include": "resources.json"
+          }
+        },
+        "destination": {
+          "server": "https://kubernetes.default.svc",
+          "namespace": "cd-e2e-20261117-182740"
+        },
+        "syncPolicy": {
+          "automated": {
+            "prune": false,
+            "selfHeal": true
+          },
+          "syncOptions": [
+            "FailOnSharedResource=true"
+          ]
+        }
+      }
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "generateName": "cd-0c71e7859fdc6cc9-preflight-",
+        "namespace": "argocd",
+        "labels": {
+          "gitops/deployment-id": "cd-0c71e7859fdc6cc9"
+        },
+        "annotations": {
+          "argocd.argoproj.io/hook": "PreSync",
+          "argocd.argoproj.io/hook-delete-policy": "HookSucceeded"
+        }
+      },
+      "spec": {
+        "backoffLimit": 0,
+        "activeDeadlineSeconds": 120,
+        "template": {
+          "spec": {
+            "serviceAccountName": "cd-bootstrap-guard",
+            "restartPolicy": "Never",
+            "securityContext": {
+              "runAsNonRoot": true,
+              "runAsUser": 65532,
+              "seccompProfile": {
+                "type": "RuntimeDefault"
+              }
+            },
+            "containers": [
+              {
+                "name": "ownership",
+                "image": "docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90",
+                "imagePullPolicy": "IfNotPresent",
+                "command": [
+                  "python3",
+                  "/guard/guard.py"
+                ],
+                "env": [
+                  {
+                    "name": "PYTHONDONTWRITEBYTECODE",
+                    "value": "1"
+                  },
+                  {
+                    "name": "EXPECTED_RESOURCES",
+                    "value": "[{\"apiVersion\": \"v1\", \"kind\": \"Namespace\", \"metadata\": {\"name\": \"cd-e2e-20261117-182740\", \"labels\": {\"gitops/deployment-id\": \"cd-0c71e7859fdc6cc9\"}, \"annotations\": {\"argocd.argoproj.io/sync-wave\": \"-2\"}}}, {\"apiVersion\": \"argoproj.io/v1alpha1\", \"kind\": \"AppProject\", \"metadata\": {\"name\": \"cd-0c71e7859fdc6cc9\", \"namespace\": \"argocd\", \"labels\": {\"gitops/deployment-id\": \"cd-0c71e7859fdc6cc9\"}, \"annotations\": {\"argocd.argoproj.io/sync-wave\": \"-1\"}}}, {\"apiVersion\": \"argoproj.io/v1alpha1\", \"kind\": \"Application\", \"metadata\": {\"name\": \"cd-0c71e7859fdc6cc9\", \"namespace\": \"argocd\", \"labels\": {\"gitops/deployment-id\": \"cd-0c71e7859fdc6cc9\"}, \"annotations\": {\"argocd.argoproj.io/sync-wave\": \"0\"}}, \"spec\": {\"project\": \"cd-0c71e7859fdc6cc9\", \"source\": {\"repoURL\": \"https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments.git\", \"targetRevision\": \"main\", \"path\": \"deployments/foundation/cd-e2e-20261117-182740/foundation-e2e\", \"directory\": {\"include\": \"resources.json\"}}, \"destination\": {\"server\": \"https://kubernetes.default.svc\", \"namespace\": \"cd-e2e-20261117-182740\"}, \"syncPolicy\": {\"automated\": {\"prune\": false, \"selfHeal\": true}, \"syncOptions\": [\"FailOnSharedResource=true\"]}}}, {\"apiVersion\": \"v1\", \"kind\": \"ConfigMap\", \"metadata\": {\"name\": \"app-settings\", \"namespace\": \"cd-e2e-20261117-182740\", \"labels\": {\"gitops/deployment-id\": \"cd-0c71e7859fdc6cc9\"}}}, {\"apiVersion\": \"apps/v1\", \"kind\": \"Deployment\", \"metadata\": {\"name\": \"app\", \"namespace\": \"cd-e2e-20261117-182740\", \"labels\": {\"gitops/deployment-id\": \"cd-0c71e7859fdc6cc9\"}}}, {\"apiVersion\": \"v1\", \"kind\": \"Service\", \"metadata\": {\"name\": \"app\", \"namespace\": \"cd-e2e-20261117-182740\", \"labels\": {\"gitops/deployment-id\": \"cd-0c71e7859fdc6cc9\"}}}, {\"apiVersion\": \"apps/v1\", \"kind\": \"Deployment\", \"metadata\": {\"name\": \"loki\", \"namespace\": \"cd-e2e-20261117-182740\", \"labels\": {\"gitops/deployment-id\": \"cd-0c71e7859fdc6cc9\"}}}, {\"apiVersion\": \"v1\", \"kind\": \"Service\", \"metadata\": {\"name\": \"loki\", \"namespace\": \"cd-e2e-20261117-182740\", \"labels\": {\"gitops/deployment-id\": \"cd-0c71e7859fdc6cc9\"}}}, {\"apiVersion\": \"v1\", \"kind\": \"ConfigMap\", \"metadata\": {\"name\": \"grafana-provisioning\", \"namespace\": \"cd-e2e-20261117-182740\", \"labels\": {\"gitops/deployment-id\": \"cd-0c71e7859fdc6cc9\"}}}, {\"apiVersion\": \"apps/v1\", \"kind\": \"Deployment\", \"metadata\": {\"name\": \"grafana\", \"namespace\": \"cd-e2e-20261117-182740\", \"labels\": {\"gitops/deployment-id\": \"cd-0c71e7859fdc6cc9\"}}}, {\"apiVersion\": \"v1\", \"kind\": \"Service\", \"metadata\": {\"name\": \"grafana\", \"namespace\": \"cd-e2e-20261117-182740\", \"labels\": {\"gitops/deployment-id\": \"cd-0c71e7859fdc6cc9\"}}}]"
+                  }
+                ],
+                "resources": {
+                  "requests": {
+                    "cpu": "10m",
+                    "memory": "32Mi"
+                  },
+                  "limits": {
+                    "cpu": "100m",
+                    "memory": "128Mi"
+                  }
+                },
+                "securityContext": {
+                  "allowPrivilegeEscalation": false,
+                  "readOnlyRootFilesystem": true,
+                  "capabilities": {
+                    "drop": [
+                      "ALL"
+                    ]
+                  }
+                },
+                "volumeMounts": [
+                  {
+                    "name": "guard",
+                    "mountPath": "/guard",
+                    "readOnly": true
+                  }
+                ]
+              }
+            ],
+            "volumes": [
+              {
+                "name": "guard",
+                "configMap": {
+                  "name": "cd-bootstrap-guard"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
