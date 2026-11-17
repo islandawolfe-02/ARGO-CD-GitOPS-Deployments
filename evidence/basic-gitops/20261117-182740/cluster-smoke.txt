@@ -1,0 +1,12 @@
+PASS GET /healthz -> Healthy
+PASS GET / -> 200 foundation page
+PASS GET /app.js -> 200, equals app/wwwroot/app.js
+FAIL GET /api/boards/reference -> 000 (expected 200)
+FAIL reference body differs from app/data/board-reference.json
+FAIL X-Lab-Release: '' (expected foundation-observe-a)
+FAIL X-Lab-Environment: '' (expected workshop-green)
+FAIL X-Request-Id: '' (expected smoke-20261117T132501Z-28091)
+FAIL GET /api/boards/missing -> 000 (expected 404 NOT_FOUND)
+request_id=smoke-20261117T132501Z-28091  (Grafana: {job="academy-w110", session="<P1_SESSION>"} | json | request_id="smoke-20261117T132501Z-28091")
+evidence files: /Users/lawanlyngdoh/Documents/Codes/Repositories/ARGO-CD-GitOPS-Deployments/evidence/basic-gitops/20261117-182740/cluster-smoke
+RESULT: FAIL (6 check(s))

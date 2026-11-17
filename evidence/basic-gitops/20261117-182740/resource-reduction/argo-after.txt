@@ -1,0 +1,3 @@
+NAME                  SYNC STATUS   HEALTH STATUS
+cd-bootstrap          Synced        Healthy
+cd-0c71e7859fdc6cc9   Synced        Healthy

@@ -1,0 +1,5 @@
+kubectl --context minikube -n argocd get application cd-bootstrap cd-0c71e7859fdc6cc9
+kubectl --context minikube -n cd-e2e-20261117-182740 get pods,svc,endpointslices -o wide
+kubectl --context minikube -n cd-e2e-20261117-182740 port-forward svc/app 18100:8081
+kubectl --context minikube -n cd-e2e-20261117-182740 port-forward svc/grafana 3011:3001
+kubectl --context minikube -n cd-e2e-20261117-182740 port-forward svc/loki 3111:3101

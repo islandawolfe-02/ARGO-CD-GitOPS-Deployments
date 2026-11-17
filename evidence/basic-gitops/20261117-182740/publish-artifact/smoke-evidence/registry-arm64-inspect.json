@@ -1,0 +1,233 @@
+[
+    {
+        "Id": "8664a66a14082e6bcf4b1c87352ecb9b8fe7d4a9dceea96633a22833b2a900fa",
+        "Created": "2026-11-17T13:02:00.148481899Z",
+        "Path": "dotnet",
+        "Args": [
+            "Foundation.dll"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 4748,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-17T13:02:00.276528356Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:fe7bdddc3ca8f8b57dd1769293026ca9e61091648f171834576b266b600d947c",
+        "ResolvConfPath": "/var/lib/docker/containers/8664a66a14082e6bcf4b1c87352ecb9b8fe7d4a9dceea96633a22833b2a900fa/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/8664a66a14082e6bcf4b1c87352ecb9b8fe7d4a9dceea96633a22833b2a900fa/hostname",
+        "HostsPath": "/var/lib/docker/containers/8664a66a14082e6bcf4b1c87352ecb9b8fe7d4a9dceea96633a22833b2a900fa/hosts",
+        "LogPath": "/var/lib/docker/containers/8664a66a14082e6bcf4b1c87352ecb9b8fe7d4a9dceea96633a22833b2a900fa/8664a66a14082e6bcf4b1c87352ecb9b8fe7d4a9dceea96633a22833b2a900fa-json.log",
+        "Name": "/foundation-registry",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "bridge",
+            "PortBindings": {
+                "8081/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18090"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": [],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "8664a66a14082e6bcf4b1c87352ecb9b8fe7d4a9dceea96633a22833b2a900fa",
+                "LowerDir": "/var/lib/docker/overlay2/d9e9ff65e147c861a5df4a40b779c51c44853568cbd93e697c0b2d9bc0a01f58-init/diff:/var/lib/docker/overlay2/88426ddef43736cbaa1d1c87e5676e31a6c1b373e632ec73ac02a0c50491ef1c/diff:/var/lib/docker/overlay2/f455f3609bb97bf0ebb399755822f35ddaf5298a0131ae4571662e4ebaaaf1b0/diff:/var/lib/docker/overlay2/3d229974cfe93b280820f3058922d0594b048c7c938a8e184e0c2b0423b62457/diff:/var/lib/docker/overlay2/e14ed643c544c15016cdae8c3e90a498c68adb8713e341d2ae2a44899627006a/diff:/var/lib/docker/overlay2/471e864d8116fd4c26c54d2a6e739c792694c11b1f60fd7fd9ae5174630cd3d1/diff:/var/lib/docker/overlay2/20e42f1a1d1b930315f6c720f0773027c91cffa3d0b4db5b2541f0e2bc820f4f/diff:/var/lib/docker/overlay2/4a4df0caef501c5687abe4c607fb9e1ebfaaec426a998aa82e61f3ff1a2a5abd/diff:/var/lib/docker/overlay2/be8b5c792d4601ff762da83f6ca5951cf21f2ef86108f66c5604600dfe88ce4f/diff",
+                "MergedDir": "/var/lib/docker/overlay2/d9e9ff65e147c861a5df4a40b779c51c44853568cbd93e697c0b2d9bc0a01f58/merged",
+                "UpperDir": "/var/lib/docker/overlay2/d9e9ff65e147c861a5df4a40b779c51c44853568cbd93e697c0b2d9bc0a01f58/diff",
+                "WorkDir": "/var/lib/docker/overlay2/d9e9ff65e147c861a5df4a40b779c51c44853568cbd93e697c0b2d9bc0a01f58/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "8664a66a1408",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "8080/tcp": {},
+                "8081/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "LAB_ENV=workshop-green",
+                "ASPNETCORE_URLS=http://0.0.0.0:8081",
+                "LAB_SESSION=cd-44088356141-arm64",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "APP_UID=1654",
+                "ASPNETCORE_HTTP_PORTS=8080",
+                "DOTNET_RUNNING_IN_CONTAINER=true",
+                "DOTNET_VERSION=10.0.12",
+                "ASPNET_VERSION=10.0.12"
+            ],
+            "Cmd": null,
+            "Image": "ghcr.io/islandawolfe-02/basic-gitops-using-argo-cd-and-minikube@sha256:06a696daca927f0d845c5670eafa38c24f6aa05b86658faac6dfce1f97f2de1a",
+            "Volumes": null,
+            "WorkingDir": "/app",
+            "Entrypoint": [
+                "dotnet",
+                "Foundation.dll"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "org.opencontainers.image.revision": "ac66c172bfde067ba456318e24d88ef2999c16a6",
+                "org.opencontainers.image.source": "https://github.com/islandawolfe-02/Basic-GitOps-using-Argo-CD-and-Minikube",
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "cf5cf2fad48767b82b4786157583c8984f466ef1dac565a81aa56da496cff73a",
+            "SandboxKey": "/var/run/docker/netns/cf5cf2fad487",
+            "Ports": {
+                "8080/tcp": null,
+                "8081/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "18090"
+                    }
+                ]
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "896b81dcae17029abb466524e3a458650f1294eaf469088e91ae893bfd868b6a",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.3",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "ba:22:1f:b5:61:00",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "MacAddress": "ba:22:1f:b5:61:00",
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "76c6debc5fc63dd87284d91dbc4b6ac1c5aaf4612944a3c855b33da61542d069",
+                    "EndpointID": "896b81dcae17029abb466524e3a458650f1294eaf469088e91ae893bfd868b6a",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        }
+    }
+]
