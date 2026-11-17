@@ -47,7 +47,7 @@ class DeploymentTests(unittest.TestCase):
 
     def test_bootstrap_restricts_argo_to_one_namespace_and_resource_file(self):
         identity, directory = render(self.root, self.request)
-        namespace, project, application = json.loads((self.root / f'bootstrap/{identity}.json').read_text())['items']
+        namespace, project, application = json.loads((self.root / f'bootstrap/{identity}.json').read_text())['items'][:3]
         self.assertEqual(namespace['metadata']['name'], 'my-application')
         self.assertEqual(project['spec']['clusterResourceWhitelist'], [])
         self.assertEqual(project['spec']['destinations'][0]['namespace'], 'my-application')

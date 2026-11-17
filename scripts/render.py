@@ -6,8 +6,8 @@ import os
 import re
 from pathlib import Path
 
-REPOSITORY = 'https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments.git'
-OWNER_LABEL = 'gitops/deployment-id'
+from ownership import OWNER_LABEL, REPOSITORY
+from parent import GUARD_IMAGE, GUARD_NAME
 PORT_KEYS = ('app_port', 'grafana_port', 'loki_port')
 INPUT_KEYS = {'project', 'source_repository', 'source_revision', 'image', 'namespace',
               'deployment_name', 'lab_env', *PORT_KEYS}
@@ -173,6 +173,37 @@ def render(root, request):
                   'syncPolicy': {'automated': {'prune': False, 'selfHeal': True},
                                  'syncOptions': ['FailOnSharedResource=true']}}},
     ]
+    for wave, item in zip(('-2', '-1', '0'), bootstrap):
+        item['metadata']['annotations'] = {'argocd.argoproj.io/sync-wave': wave}
+    expected = []
+    for item in bootstrap + resources:
+        reference = {key: item[key] for key in ('apiVersion', 'kind', 'metadata')}
+        if item['kind'] == 'Application':
+            reference['spec'] = item['spec']
+        expected.append(reference)
+    bootstrap.append({
+        'apiVersion': 'batch/v1', 'kind': 'Job',
+        'metadata': {'generateName': identity + '-preflight-', 'namespace': 'argocd', 'labels': labels,
+                     'annotations': {'argocd.argoproj.io/hook': 'PreSync',
+                                     'argocd.argoproj.io/hook-delete-policy': 'HookSucceeded'}},
+        'spec': {'backoffLimit': 0, 'activeDeadlineSeconds': 120,
+                 'template': {'spec': {
+                     'serviceAccountName': GUARD_NAME, 'restartPolicy': 'Never',
+                     'securityContext': {'runAsNonRoot': True, 'runAsUser': 65532,
+                                         'seccompProfile': {'type': 'RuntimeDefault'}},
+                     'containers': [{'name': 'ownership', 'image': GUARD_IMAGE, 'imagePullPolicy': 'IfNotPresent',
+                                     'command': ['python3', '/guard/guard.py'],
+                                     'env': [{'name': 'PYTHONDONTWRITEBYTECODE', 'value': '1'},
+                                             {'name': 'EXPECTED_RESOURCES', 'value': json.dumps(expected)}],
+                                     'resources': {'requests': {'cpu': '10m', 'memory': '32Mi'},
+                                                   'limits': {'cpu': '100m', 'memory': '128Mi'}},
+                                     'securityContext': {'allowPrivilegeEscalation': False,
+                                                         'readOnlyRootFilesystem': True,
+                                                         'capabilities': {'drop': ['ALL']}},
+                                     'volumeMounts': [{'name': 'guard', 'mountPath': '/guard', 'readOnly': True}]}],
+                     'volumes': [{'name': 'guard', 'configMap': {'name': GUARD_NAME}}],
+                 }}},
+    })
     destination.mkdir(parents=True, exist_ok=True)
     files = {
         destination / 'resources.json': {'apiVersion': 'v1', 'kind': 'List', 'items': resources},
@@ -182,8 +213,7 @@ def render(root, request):
     for path, value in files.items():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(value, indent=2) + '\n')
-    commands = [f'python3 scripts/bootstrap.py {identity}',
-                f'kubectl --context minikube -n argocd get application {identity}',
+    commands = [f'kubectl --context minikube -n argocd get application cd-bootstrap {identity}',
                 f'kubectl --context minikube -n {namespace} get pods,svc,endpointslices -o wide']
     for name, key, target in (('app', 'app_port', port), ('grafana', 'grafana_port', 3001), ('loki', 'loki_port', 3101)):
         commands.append(f'kubectl --context minikube -n {namespace} port-forward svc/{name} {request[key]}:{target}')
