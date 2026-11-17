@@ -96,7 +96,7 @@ jobs:
             git commit -m "Update deployment $DEPLOYMENT_ID"
             git push origin HEAD:main
           fi
-      - name: Show manual bootstrap and access commands
+      - name: Show automatic registration and access commands
         env:
           DEPLOYMENT_ID: ${{ steps.render.outputs.deployment_id }}
           DEPLOYMENT_PATH: ${{ steps.render.outputs.path }}
@@ -104,10 +104,12 @@ jobs:
           {
             echo '### Deployment configuration recorded'
             echo "Deployment ID: $DEPLOYMENT_ID"
-            echo 'For the first deployment, pull this repository on the Mac and review the bootstrap file.'
+            echo 'The parent Argo Application cd-bootstrap registers this installation automatically after its ownership checks pass.'
+            echo 'One-time setup on a new cluster: python3 scripts/parent.py --install (see README).'
             echo 'Run each port-forward command in a separate terminal.'
             echo '```bash'
             cat "$DEPLOYMENT_PATH/commands.txt"
             echo '```'
-            echo 'Verify Argo and the Pod before recording deployment success. This workflow does not contact the cluster.'
+            echo 'Wait for the child Application to become Synced/Healthy and verify the Pods before recording deployment success.'
+            echo 'This workflow records configuration; it does not contact the cluster or start Mac port-forwards.'
           } >> "$GITHUB_STEP_SUMMARY"
