@@ -19,8 +19,22 @@
 - Endpoint IPs match Pod IPs: PASS; ready app, Loki and Grafana endpoint IPs match their Pod IPs ([verification](workload-verification.json)).
 - Deployed image matches record: PASS; the live app Deployment uses the exact GHCR digest in `record.json` ([verification](workload-verification.json)).
 - Cluster smoke checks: PASS on the diagnostic rerun; the initial run failed with API responses of `000`. Both attempts are retained in `cluster-smoke.txt` and `cluster-smoke-rerun/`.
-- Browser, Pod logs and Grafana request ID match: PARTIAL; browser JSON, Grafana and Loki match `e2ba53f1-cb88-43e8-a6d6-2e1052a06a44`, but that ID is absent from the saved `app-pod.log`.
+- Browser, Pod logs and Grafana request ID match: PARTIAL; browser JSON, Grafana and Loki match `e2ba53f1-cb88-43e8-a6d6-2e1052a06a44`. The saved Pod log lacks it because the request predates the available container log windows; see [restart verification](request-log-check/verification.json).
 - Existing deployments remain present: PASS for Deployment definitions; twelve older Deployments were intentionally scaled to zero and their thirteen Pods removed during [resource cleanup](resource-reduction/README.md).
+
+## Request-log verification
+
+Checked the current and previous app container logs after nine restarts. The
+original request was recorded by Loki at `2026-11-17T13:32:54.4149132Z`. The
+available previous container started at `13:45:30Z`, and the current container
+started at `13:56:14Z`, both later than that request. Neither available log
+contains its request ID. This confirms that the saved Pod-log window is too
+recent for the original request; its earlier stdout line could not be recovered
+through the current or previous container log API.
+
+The raw logs and timestamp checks are retained in `request-log-check/`.
+The original browser JSON, Grafana screenshot, Loki response and Pod log were
+kept unchanged. The original three-way match remains partial.
 
 ## Scope
 

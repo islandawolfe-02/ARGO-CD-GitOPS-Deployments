@@ -1,0 +1,52 @@
+{
+  "checked_at_utc": "2026-11-17T14:15:35.013785+00:00",
+  "pod": "app-cd8c66677-nzshk",
+  "restart_count": 9,
+  "current_state": {
+    "running": {
+      "startedAt": "2026-11-17T13:56:14Z"
+    }
+  },
+  "previous_state": {
+    "terminated": {
+      "containerID": "docker://ab2e624fe64ab2d3c19379f953baea1ffef49d66dad4fa71f544732eab1e03d4",
+      "exitCode": 0,
+      "finishedAt": "2026-11-17T13:51:08Z",
+      "reason": "Completed",
+      "startedAt": "2026-11-17T13:45:30Z"
+    }
+  },
+  "request_id": "e2ba53f1-cb88-43e8-a6d6-2e1052a06a44",
+  "current": {
+    "exit_code": 0,
+    "stderr": "",
+    "matching_lines": [],
+    "sha256": "caefe733f99c24de5e0f972d9db07415b89a9e237a3f9353a4349c911f3b6247",
+    "line_count": 466
+  },
+  "previous": {
+    "exit_code": 0,
+    "stderr": "",
+    "matching_lines": [],
+    "sha256": "9333f0a4c649ccdad4e36b073e01d2684e0ea85b8d03bf32f6bf493fcca69be7",
+    "line_count": 65
+  },
+  "original_request": {
+    "ts": "2026-11-17T13:32:54.4149132Z",
+    "job": "academy-w110",
+    "session": "cd-0c71e7859fdc6cc9",
+    "request_id": "e2ba53f1-cb88-43e8-a6d6-2e1052a06a44",
+    "action_id": "fd5b307c-a84e-4878-8e16-45eb51460e7c",
+    "method": "GET",
+    "path": "/api/boards/reference",
+    "status": 200,
+    "result_status": 200,
+    "response_status": 200,
+    "duration_ms": 33,
+    "elapsed_ms": 33,
+    "caller_aborted": false,
+    "release": "foundation-observe-a",
+    "environment": "workshop-green"
+  },
+  "conclusion": "The original request predates both available container log windows. Neither current nor previous kubectl logs contains its request ID. Browser, Grafana and Loki match; the original three-way stdout comparison remains partial."
+}
