@@ -1,8 +1,16 @@
 # ARGO-CD-GitOPS-Deployments
 
+[![Deployment configuration checks](https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments/actions/workflows/check.yml/badge.svg)](https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments/actions/workflows/check.yml)
+
 A shared deployment repository for applications running on minikube. Each app
 builds and publishes its image to GHCR; this repository stores the deployment
 settings that Argo CD applies to the cluster.
+
+> **Scope.** Application repositories own image builds and smoke checks. This
+> repository owns deployment configuration and Argo registration. GitHub runners
+> do not need access to the Mac's Kubernetes API or its cluster credentials.
+
+## Architecture
 
 ```mermaid
 flowchart LR
@@ -19,11 +27,31 @@ flowchart LR
 Each installation has its own namespace, Argo Application, Loki and Grafana.
 A parent Application registers new installations automatically.
 
-## Setup
+## Repository layout
+
+| Path | Purpose |
+|---|---|
+| [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) | Receive requests, validate images and commit generated configuration |
+| [`.github/workflows/check.yml`](.github/workflows/check.yml) | Run configuration tests on pull requests and pushes to `main` |
+| `projects/<project>.json` | Register each app's source repository, listener, health endpoint and environments |
+| `deployments/<project>/<namespace>/<deployment>/resources.json` | Desired state watched by the child Application |
+| `deployments/<project>/<namespace>/<deployment>/record.json` | Public request details, source commit, image digest and deployment ID |
+| `deployments/<project>/<namespace>/<deployment>/commands.txt` | Installation-specific verification and port-forward commands |
+| `bootstrap/cd-*.json` | Ownership hook and namespace, AppProject and child Application registration |
+| [`scripts/parent.py`](scripts/parent.py) | Preview or install the parent and its ownership-check resources |
+| [`scripts/bootstrap.py`](scripts/bootstrap.py) | Register one installation manually when the parent is not used |
+| [`tests/`](tests/) | Rendering and ownership checks without a live cluster |
+
+## Prerequisites
 
 You need Python 3, Docker Desktop, minikube, kubectl and an existing Argo CD
 installation in the `argocd` namespace. Commands below run from this repository
 in your Mac terminal, with Docker Desktop and minikube running.
+
+Git is also needed to clone the repository. Existing applications in the
+cluster can continue running alongside these installations.
+
+## GitHub access
 
 Configure GitHub access:
 
@@ -37,7 +65,16 @@ Configure GitHub access:
 Keep tokens and cluster credentials out of Git. Restrict write access to trusted
 maintainers, because this repository controls Argo Applications and Projects.
 
-## Connect Argo once per cluster
+## Quick start (fresh clone)
+
+Clone the deployment repository and enter it:
+
+```bash
+git clone https://github.com/islandawolfe-02/ARGO-CD-GitOPS-Deployments.git
+cd ARGO-CD-GitOPS-Deployments
+```
+
+### Connect Argo once per cluster
 
 Preview the parent configuration:
 
@@ -61,7 +98,7 @@ deletion is disabled.
 Run the installer again when updating the installed ownership-check code or
 permissions. Ordinary deployments do not need another install or manual apply.
 
-## Deploy an app
+### Deploy an app
 
 1. Open the app repository's optional workflow in **GitHub Actions**.
 2. Select **Deploy: Yes**. Select **Build image: Yes** for a new build, or
@@ -92,7 +129,11 @@ protected namespaces are rejected, along with reserved local ports `18080`,
 | Grafana | `3001` |
 | Loki | `3101` |
 
-## Check and access the deployment
+The local ports must be between `1024` and `65535` and available on your Mac.
+Container and Service ports can repeat across namespaces; the forwarded local
+ports must remain distinct.
+
+## Startup and verification
 
 Use the exact commands from the workflow summary or the installation's
 `commands.txt`. Check that its Argo Application is **Synced/Healthy** and its
@@ -104,6 +145,27 @@ to Loki, match a request ID from the app with its Grafana row.
 
 A successful workflow means the configuration was saved. Check the child
 Application and app response to confirm that deployment finished.
+
+| Check | Expected result |
+|---|---|
+| Parent Application `cd-bootstrap` | Synced/Healthy, with no failed ownership hook |
+| Child Application from the run summary | Synced/Healthy at the intended configuration revision |
+| App, Loki and Grafana Pods | Ready and Running in the selected namespace |
+| Service EndpointSlices | Ready endpoint addresses match the corresponding Pod IPs |
+| App Deployment image | Digest reference matches the installation's `record.json` |
+| Browser and Grafana | App responds; any shipped request logs can be found by request ID |
+
+## Build and image identity
+
+Images are built and checked in the app repository, then published to its GHCR
+package. The deployment request records the source commit and a multi-platform
+image digest; Kubernetes pulls that image from GHCR. No manual image load into
+minikube is needed for this route.
+
+The registry check requires Linux AMD64 and ARM64 manifests. A running Pod's
+`imageID` can identify its platform-specific image rather than the parent
+multi-platform digest, so these values need not be identical. Keep the source
+commit, requested image reference and configuration revision distinct.
 
 ## Add another app
 
@@ -124,6 +186,22 @@ provides its own log shipping; this repository does not add application code.
 Its publishing workflow must send the inputs declared in
 [deploy.yml](.github/workflows/deploy.yml), including the project name, source
 commit, image digest, environment and destination settings.
+
+The request fields are:
+
+| Input | Meaning |
+|---|---|
+| `project` | Registered profile name, without `.json` |
+| `source_repository` | App repository as `owner/repository`, matching the profile |
+| `source_revision` | Full 40-character lowercase source commit SHA |
+| `image` | App's own public GHCR package, pinned with `@sha256:<64 lowercase hex characters>` |
+| `namespace`, `deployment_name` | Destination and installation identity; retain both for updates |
+| `app_port`, `grafana_port`, `loki_port` | Three distinct, unused local port-forward ports |
+| `lab_env` | An environment allowed by the registered profile |
+
+The app's workflow supplies these inputs when dispatching `deploy.yml`. Its
+build and smoke checks remain the app repository's responsibility; the receiver
+validates the public image index and request, rather than repeating those checks.
 
 Generated files are stored in:
 
@@ -157,6 +235,8 @@ parent sync after correcting the problem; selective sync skips ownership hooks.
 The cluster must be running for Argo to deploy. GitHub queue delays can postpone
 the configuration update, and local browser access needs running port-forwards.
 
+## Recovery and manual registration
+
 To roll back, deploy a previously verified image digest using the same namespace
 and deployment name. Changing those names creates another installation;
 deleting configuration files does not remove cluster resources.
@@ -166,6 +246,8 @@ Without the parent, manual registration remains available:
 ```bash
 python3 scripts/bootstrap.py <deployment-id>
 ```
+
+Loki storage is ephemeral; retain any log evidence you need outside the Pod.
 
 ## Local checks
 
